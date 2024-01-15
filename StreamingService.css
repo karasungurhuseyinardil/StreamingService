@@ -801,4 +801,246 @@ a {
 .watch-later-modal h3 .movie {
     color: var(--red);
 }
+@media screen and (max-width: 1660px) {
+    .top p {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 1430px) {
+    .card h4 {
+        font-size: 16px;
+    }
+
+    .card p {
+        font-size: 11px;
+    }
+
+    .overlay {
+        width: calc(100% - 20px);
+        padding: 0px 10px;
+    }
+
+    .overlay .button-container {
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    .modal-content {
+        max-width: 800px;
+    }
+}
+
+@media screen and (max-width: 1330px) {
+    .top h1 {
+        font-size: 80px;
+    }
+
+    .top p {
+        font-size: 14px;
+    }
+
+    .top h3 {
+        font-size: 12px;
+    }
+
+    .top svg {
+        width: 20px;
+        height: 20px;
+        min-width: 20px;
+    }
+
+    .top .watch,
+    .top .queue {
+        padding: 7px 20px;
+    }
+}
+
+@media screen and (max-width: 1230px) {
+    .main-nav .button-container h2 {
+        font-size: 20px;
+    }
+
+    .right-nav .button-container h2 {
+        font-size: 16px;
+    }
+
+    .carousel-btn svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .card svg {
+        width: 20px;
+        height: 20px;
+        min-width: 20px;
+    }
+
+    .content-area .content-title {
+        padding-left: 30px;
+    }
+
+    .search-area-content h2 {
+        font-size: 40px;
+    }
+
+    .search-area-content p {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 1180px) {
+    .top .left-side {
+        padding-left: 6%;
+        width: 45%;
+    }
+
+    .search-area-content .input-area {
+        width: 50%;
+        margin-top: 40px;
+    }
+
+    .mid .search-area {
+        height: 400px;
+    }
+
+    .search-area input {
+        font-size: 18px;
+    }
+
+    .search-area svg {
+        width: 20px;
+        height: 20px;
+        min-width: 20px;
+    }
+
+    .modal-content {
+        max-width: 700px;
+    }
+}
+
+@media screen and (max-width: 1045px) {
+    .top h1 {
+        font-size: 65px;
+    }
+
+    .top p {
+        font-size: 12px;
+    }
+
+    .content-area .content-title {
+        font-size: 28px;
+    }
+
+    .mid {
+        padding: 30px;
+    }
+
+    .search-area-content .input-area input {
+        height: 40px;
+    }
+
+    .search-area-content h2 {
+        font-size: 30px;
+    }
+    .search-area-content p {
+        font-size: 16px;
+    }
+
+    .mid .search-area {
+        height: 350px;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .header .brand h1 {
+        font-size: 30px;
+    }
+
+    .main-nav .button-container h2 {
+        font-size: 16px;
+    }
+
+    .right-nav .button-container h2 {
+        font-size: 12px;
+    }
+
+    .main-nav {
+        margin-left: 30px;
+    }
+
+    .movie-desc {
+        padding: 0px;
+        height: 100%;
+    }
+
+    .modal-content {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 815px) {
+    .header {
+        min-height: 70px;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 737px) {
+    .carousel-btn {
+        display: none;
+    }
+
+    .card {
+        display: flex !important;
+        overflow-y: visible;
+    }
+
+    .card:hover {
+        position: relative;
+        margin: 0px 30px !important;
+    }
+
+    .card-carousel {
+        overflow-x: scroll;
+        overflow-y: visible;
+        align-items: center;
+    }
+
+    .card svg {
+        width: 10px;
+        height: 10px;
+        min-width: 10px;
+    }
+
+    .search-area .input-area {
+        width: 70%;
+    }
+
+    .mid .search-area {
+        height: 250px;
+    }
+
+    .content-area .content-title {
+        padding-left: 0px;
+    }
+
+    .bottom .btn-row {
+        width: 95%;
+    }
+
+    .desc-top h3 {
+        font-size: 16px;
+    }
+
+    .desc-top svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .desc-mid p {
+        font-size: 25px;
+    }
+}
+
 
