@@ -687,3 +687,118 @@ a {
     border-radius: 50px;
     margin-top: 50px;
 }
+.bottom {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100px;
+    background-color: #141414;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottom .btn-row {
+    width: 50%;
+    margin: 15px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bottom .btn-row h4 {
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+}
+
+.bottom .btn-row h4:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.bottom .brand {
+    display: flex;
+}
+
+.bottom .brand h1 {
+    font-family: "Anton", sans-serif;
+    font-size: 35px;
+}
+
+.bottom .socials {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.socials a svg {
+    width: 25px;
+    height: 25px;
+    max-width: 25px;
+    color: white;
+    padding-left: 20px;
+}
+
+.btn-row p {
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-size: 8px;
+}
+/* END FOOTER */
+
+/* MODAL */
+
+.watch-later-modal {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    z-index: 11;
+    background-color: #333;
+    margin-bottom: 15px;
+    margin-left: 15px;
+    display: flex;
+    padding: 20px;
+    border-radius: 9px;
+    align-items: center;
+    display: none;
+    box-shadow: 3px 3px 8px black;
+}
+
+.watch-later-modal h3 {
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    color: white;
+}
+
+.watch-later-modal .side-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.watch-later-modal .side-buttons svg {
+    width: 35px;
+    min-width: 35px;
+    height: 35px;
+    min-height: 35px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 6px;
+    border-radius: 50px;
+    margin-left: 20px;
+}
+
+.side-buttons svg:hover {
+    background-color: #141414;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.watch-later-modal h3 .playlist {
+    color: var(--red);
+}
+
+.watch-later-modal h3 .movie {
+    color: var(--red);
+}
+
