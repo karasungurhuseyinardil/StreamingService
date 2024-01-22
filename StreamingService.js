@@ -332,4 +332,108 @@ const AddCards = () => {
                     close_btn.innerHTML = `<svg fill="currentColor" viewBox="0 0 16 16">
   <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
 </svg>`;
+close_btn.addEventListener("click", function () {
+                        this.parentElement.parentElement.parentElement.parentElement.remove();
+                    });
+
+                    image_cover.append(close_btn);
+                    bg_image.append(image_cover);
+
+                    let top_info = document.createElement("div");
+                    top_info.classList.add("desc-top");
+                    let title = document.createElement("h1");
+                    title.innerText = chosen_card.title;
+
+                    let btn_selection = document.createElement("div");
+                    btn_selection.classList.add("button-selection");
+                    btn_selection.innerHTML = `
+                        <div class="watch">
+                            <h3>Play</h3>
+                            <svg fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z" />
+                            </svg>
+                        </div>
+                        <div class="queue" onclick="ToggleWatchLater('${chosen_card.title}');">
+                            <h3>Watch Later</h3>
+                            <svg fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                            </svg>
+                        </div>`;
+
+                    top_info.append(title, btn_selection);
+
+                    let mid_info = document.createElement("div");
+                    mid_info.classList.add("desc-mid");
+                    mid_info.innerHTML = `<p>${chosen_card.description}</p>`;
+
+                    let bottom_info = document.createElement("div");
+                    bottom_info.classList.add("desc-bottom");
+
+                    let cast_slider = document.createElement("div");
+                    cast_slider.classList.add("cast");
+
+                    bottom_info.append(cast_slider);
+
+                    modal_content.append(
+                        bg_image,
+                        top_info,
+                        mid_info,
+                        bottom_info
+                    );
+                    modal.append(modal_content);
+
+                    document.body.append(modal);
+
+                    document.body.addEventListener("click", function (event) {
+                        if (!event.target.classList.contains("modal-content")) {
+                            //modal.remove();
+                            console.log(1);
+                        }
+                    });
+
+                    // Set the height for the modal image
+                    let total_width = document.getElementsByClassName(
+                        "modal-content"
+                    )[0].clientWidth;
+                    let large_scale = (100 * total_width) / 1920;
+                    document.getElementsByClassName(
+                        "desc-image"
+                    )[0].style.height = `${1080 * (large_scale / 100)}px`;
+
+                    // Set image for cast
+                    for (let c = 0; c < cast.length; c++) {
+                        let cast_block = document.createElement("div");
+                        cast_block.classList.add("cast-card");
+                        cast_block.style.backgroundImage = `url("${cast[c].picture}")`;
+                        cast_block.style.width = 100 / cast.length - 5 + "%";
+                        cast_block.style.height = `calc(${
+                            document.getElementsByClassName("cast")[0]
+                                .clientWidth / cast.length
+                        }"px" - 5%)`;
+                        cast_slider.append(cast_block);
+                    }
+                }
+            });
+
+            button_container.append(button1, button2, button3, button4);
+
+            overlay.append(title, description, button_container);
+            card.append(overlay);
+            if (j < num_cards) {
+                carousels[i].insertBefore(
+                    card,
+                    carousels[i].children[carousels[i].children.length - 1]
+                );
+            } else {
+                card.style.display = "none";
+                carousels[i].insertBefore(
+                    card,
+                    carousels[i].children[carousels[i].children.length - 1]
+                );
+            }
+        }
+    }
+};
 
