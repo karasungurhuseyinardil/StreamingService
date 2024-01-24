@@ -513,4 +513,97 @@ const MakeJumbotron = () => {
 };
 
 };
+let slide_index = 0;
+
+const AutoSlideShow = () => {
+    let slide_area = document.getElementsByClassName("top")[0];
+    let container = slide_area.children[0];
+
+    container.classList.add("fadeIn");
+
+    let bg_display = [];
+    for (let i = 0; i < cards.length; i++) {
+        if (cards[i].display_background) {
+            bg_display.push(i);
+        }
+    }
+
+    slide_index++;
+    if (slide_index > bg_display.length - 1) {
+        slide_index = 0;
+    }
+
+    slide_area.style.backgroundImage = `url("${
+        cards[bg_display[slide_index]].display_background
+    }")`;
+    slide_area.getElementsByTagName("h1")[0].innerHTML =
+        cards[bg_display[slide_index]].title;
+    slide_area.getElementsByTagName("p")[0].innerHTML =
+        cards[bg_display[slide_index]].description;
+
+    container.classList.add("fadeOut");
+    setTimeout(AutoSlideShow, 2000);
+};
+
+const SmoothScroll = (id) => {
+    let element = document.getElementById(id);
+    element.scrollIntoView({ behavior: "smooth", block: "center" });
+};
+
+const Next = (elem) => {
+    let carousel = elem.parentElement.parentElement;
+    let first_elem = carousel.children[1];
+    let next_elem;
+
+    for (let i = 0; i < carousel.children.length; i++) {
+        if (carousel.children[i].style.display == "none") {
+            next_elem = carousel.children[i];
+            break;
+        }
+    }
+
+    first_elem.style.display = "none";
+    first_elem.remove();
+    carousel.insertBefore(
+        first_elem,
+        carousel.children[carousel.children.length - 1]
+    );
+
+    next_elem.style.display = "flex";
+};
+
+const Previous = (elem) => {
+    let carousel = elem.parentElement.parentElement;
+    let last_display_item;
+    let prev_elem = carousel.children[carousel.children.length - 2];
+
+    for (let i = 0; i < carousel.children.length; i++) {
+        if (
+            carousel.children[i].style.display != "none" &&
+            !carousel.children[i].classList.contains("carousel-btn")
+        ) {
+            last_display_item = carousel.children[i];
+        }
+    }
+
+    last_display_item.style.display = "none";
+
+    carousel.insertBefore(prev_elem, carousel.children[1]);
+
+    prev_elem.style.display = "flex";
+};
+
+const ToggleWatchLater = (movie = "", activate = true) => {
+    let modal = document.getElementsByClassName("watch-later-modal")[0];
+
+    if (movie != "") {
+        modal.getElementsByClassName("movie")[0].innerText = movie;
+    }
+
+    if (activate) {
+        modal.style.display = "flex";
+    } else {
+        modal.style.display = "none";
+    }
+};
 
