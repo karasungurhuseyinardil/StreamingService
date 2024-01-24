@@ -435,5 +435,82 @@ close_btn.addEventListener("click", function () {
             }
         }
     }
+    const CheckCards = () => {
+    let carousels = document.getElementsByClassName("card-carousel");
+
+    for (let i = 0; i < carousels.length; i++) {
+        let carousel_width = carousels[i].clientWidth;
+
+        let btn_width =
+            carousels[i].getElementsByClassName("carousel-btn")[0].clientWidth +
+            carousels[i].getElementsByClassName("carousel-btn")[1].clientWidth;
+
+        let num_cards = num_cards_GLOBAL;
+        let card_margin = 2;
+        let initial_width = 1920;
+        let initial_height = 1080;
+
+        let scale =
+            (100 *
+                ((carousel_width - btn_width) / num_cards - card_margin * 2)) /
+            initial_width;
+
+        let cards = carousels[i].getElementsByClassName("card");
+
+        for (let i = 0; i < cards.length; i++) {
+            cards[i].style.width = initial_width * (scale / 100) + "px";
+            cards[i].style.height = initial_height * (scale / 100) + "px";
+            cards[i].style.margin = `0px ${card_margin}px`;
+            cards[i].style.minWidth = initial_width * (scale / 100) + "px";
+            cards[i].style.minHeight = initial_height * (scale / 100) + "px";
+        }
+
+        if (IsMobile()) {
+            carousels[i].style.height =
+                1.6 * (initial_height * (scale / 100)) + "px";
+        } else {
+            carousels[i].style.height = "auto";
+        }
+    }
+};
+
+const AddCarouselButtons = () => {
+    let carousels = document.getElementsByClassName("card-carousel");
+    for (let i = 0; i < carousels.length; i++) {
+        let btn1 = document.createElement("div");
+        btn1.classList.add("carousel-btn");
+        btn1.innerHTML = `<svg fill="currentColor" viewBox="0 0 16 16" onclick="Previous(this);">
+                            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                        </svg>`;
+
+        let btn2 = document.createElement("div");
+        btn2.classList.add("carousel-btn");
+
+        btn2.innerHTML = `<svg fill="currentColor" viewBox="0 0 16 16" onclick="Next(this);">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>`;
+
+        carousels[i].append(btn1, btn2);
+    }
+};
+
+const ScrollFunction = () => {
+    let header = document.getElementsByClassName("header")[0];
+    if (document.documentElement.scrollTop > 1) {
+        header.classList.add("header-active");
+    } else {
+        header.classList.remove("header-active");
+    }
+};
+
+const MakeJumbotron = () => {
+    let height =
+        window.innerHeight ||
+        document.documentElement.clientHeight ||
+        document.getElementsByTagName("body")[0].clientHeight;
+
+    document.getElementsByClassName("top")[0].style.height = `${height}px`;
+};
+
 };
 
