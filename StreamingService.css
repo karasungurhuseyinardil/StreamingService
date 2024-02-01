@@ -1055,7 +1055,7 @@ a {
         font-size: 25px;
     }
 }
-
+/*Burdayiz*/
 @media screen and (max-width: 730px) {
     .carousel-btn svg {
         width: 20px;
@@ -1171,5 +1171,3 @@ a {
         padding: 0px 10px;
     }
 }
-
-

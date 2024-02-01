@@ -100,6 +100,7 @@ let cast = [
         name: "Jennifer Lawrence"
     }
 ];
+
 const IsMobile = () => {
     let width =
         window.innerWidth ||
@@ -332,7 +333,8 @@ const AddCards = () => {
                     close_btn.innerHTML = `<svg fill="currentColor" viewBox="0 0 16 16">
   <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
 </svg>`;
-close_btn.addEventListener("click", function () {
+
+                    close_btn.addEventListener("click", function () {
                         this.parentElement.parentElement.parentElement.parentElement.remove();
                     });
 
@@ -435,7 +437,9 @@ close_btn.addEventListener("click", function () {
             }
         }
     }
-    const CheckCards = () => {
+};
+//Burdayizz
+const CheckCards = () => {
     let carousels = document.getElementsByClassName("card-carousel");
 
     for (let i = 0; i < carousels.length; i++) {
@@ -512,7 +516,6 @@ const MakeJumbotron = () => {
     document.getElementsByClassName("top")[0].style.height = `${height}px`;
 };
 
-};
 let slide_index = 0;
 
 const AutoSlideShow = () => {
@@ -606,4 +609,3 @@ const ToggleWatchLater = (movie = "", activate = true) => {
         modal.style.display = "none";
     }
 };
-
